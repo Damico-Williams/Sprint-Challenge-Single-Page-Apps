@@ -7,7 +7,7 @@ import SearchForm from "./SearchForm";
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [character, setCharacter] = useState([])
-  const [search, setSearch] = useState({ name: "",})
+  const [search, setSearch] = useState([])
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -25,8 +25,8 @@ export default function CharacterList() {
   }, []);
 
   useEffect(() => {
-      const results = character.filter(chars => 
-        chars.name.toLowerCase().includes(search));
+      const results = data.filter(data => 
+        data.name.toLowerCase().includes(search));
 
       setCharacter(results)
   }, [search])
@@ -44,7 +44,7 @@ export default function CharacterList() {
       {character.map(char => (
         <ul>
         <li key={char}><CharacterCard
-        key={char.id}
+        /*key={char.id}*/
         name={char.name}
         species={char.species}
         /></li>
@@ -58,7 +58,7 @@ export default function CharacterList() {
             <li key={wh}>{wh.name} {wh.species}</li>
           )}
         </ul>
-      </div> */}
+          </div> */}
     </section>
   );
 }
